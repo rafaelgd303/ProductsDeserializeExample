@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Net.Http.Headers;
+using System.Text.Json;
 using WebApplication1.Models;
 
 namespace WebApplication1.Data
@@ -16,7 +17,7 @@ namespace WebApplication1.Data
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri(URL);
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             HttpResponseMessage response = client.GetAsync(URL).Result;
 
